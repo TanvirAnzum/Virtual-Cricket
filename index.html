@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fictional Cricket Game!!</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <main class="main-area">
+      <div class="main">
+        <div class="main__info">
+          <form class="main__info__input">
+            <input
+              type="number"
+              name="over"
+              id="overs"
+              min="1"
+              max="50"
+              placeholder="Overs"
+              required
+            />
+            <input
+              type="number"
+              name="Wickets"
+              id="wickets"
+              min="5"
+              max="10"
+              placeholder="Wickets"
+              required
+            />
+            <input type="submit" value="Submit" id="submit" />
+          </form>
+          <div class="main__info__value">
+            <h4 class="total_over">Total Overs:</h4>
+            <h4 class="total_wicket">Total Wickets:</h4>
+            <div>
+              <button class="player-btn">Player Settings</button>
+              <button class="toss" onclick="DisplayToss()">Toss</button>
+            </div>
+          </div>
+          <div class="tossing-area">
+            <div class="toss-result">
+              <p class="tr-text">Head OR Tail!!</p>
+            </div>
+            <div class="toss-btns">
+              <button class="head" onclick="toss(this)">Head</button>
+              <button class="tail" onclick="toss(this)">Tail</button>
+            </div>
+          </div>
+        </div>
+        <div class="main__player1">
+          <h4>Player 1</h4>
+          <h4>Total Runs:</h4>
+          <h4>Total Overs:</h4>
+          <h4>Remaining Wickets:</h4>
+          <h4>Current Runrate:</h4>
+        </div>
+        <div class="main__spinner">
+          <div class="box" id="box">
+            <div class="box1">
+              <span class="selection span-1"><p>Wicket!!</p> </span
+              ><span class="selection span-2"><p>Six Runs!!</p></span
+              ><span class="selection span-3"><p>Two Run!</p></span
+              ><span class="selection span-4"><p>Three Run!</p></span>
+            </div>
+            <div class="box2">
+              <span class="selection span-1"><p>Wicket!!</p> </span
+              ><span class="selection span-2"><p>Four Runs!!</p></span
+              ><span class="selection span-3"><p>One Run!</p></span
+              ><span class="selection span-4"><p>Dot Ball!</p></span>
+            </div>
+            <button class="spin-btn">Spin</button>
+          </div>
+          <img src="./marker.png" alt="arrow left solid" class="img" />
+          <div class="modal">
+            <img src="./Runs.png" alt="verdict" class="modal-img" />
+            <p class="modal-text"></p>
+          </div>
+        </div>
+        <div class="main__player2">
+          <h4>Player 2</h4>
+          <h4>Total Runs:</h4>
+          <h4>Remaining Balls:</h4>
+          <h4>Remaining Wickets:</h4>
+          <h4>Current Runrate:</h4>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

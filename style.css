@@ -1,0 +1,277 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.main-area {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.main-area .main {
+  width: 70em;
+  height: 50em;
+  border-radius: 1em;
+  display: grid;
+  grid-template-columns: 0.5fr 2fr 0.5fr;
+  grid-template-rows: 0.5fr 1.5fr;
+  grid-template-areas: "i i i" "a s b";
+}
+.main-area .main__info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5em;
+  grid-area: i;
+  background-color: antiquewhite;
+}
+.main-area .main__info .tossing-area {
+  position: absolute;
+  z-index: 30;
+  top: calc(50% - 10em);
+  width: 30em;
+  height: 20em;
+  border-radius: 1em;
+  background-color: #2980b9;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.main-area .main__info .tossing-area .toss-result {
+  width: 80%;
+  height: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-area .main__info .tossing-area .toss-result p {
+  font-weight: 700;
+  font-size: 1.5em;
+  text-align: center;
+}
+.main-area .main__info .tossing-area button {
+  font-size: 1em;
+  font-weight: 700;
+  width: 7em;
+  height: 2.5em;
+  border-radius: 0.5em;
+  border: none;
+  margin: 0.5em;
+  background-color: #fab1a0;
+  transition: all ease 0.8s;
+  color: rgba(0, 0, 0, 0.5);
+}
+.main-area .main__info .tossing-area button:hover {
+  color: black;
+  background-color: #e17055;
+  cursor: pointer;
+}
+.main-area .main__info .tossing-area .toss-btns {
+  display: flex;
+  align-items: center;
+  height: 30%;
+}
+.main-area .main__info__input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.main-area .main__info__input input {
+  width: 10em;
+  height: 2em;
+  border-radius: 0.4em;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  text-align: center;
+}
+.main-area .main__info__input #submit {
+  background-color: #26de81;
+  transition: background-color linear 0.5s;
+}
+.main-area .main__info__input #submit:hover {
+  background-color: #20bf6b;
+  cursor: pointer;
+}
+.main-area .main__info__value {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.main-area .main__info__value h4 {
+  height: 2em;
+  line-height: 2em;
+}
+.main-area .main__info__value div {
+  height: 2em;
+  width: 20em;
+  display: flex;
+  gap: 1em;
+}
+.main-area .main__info__value div button {
+  height: 100%;
+  width: 8em;
+  font-size: 1em;
+  border-radius: 0.4em;
+  border: none;
+  background-color: #778ca3;
+  color: whitesmoke;
+  transition: background-color linear 0.5s;
+}
+.main-area .main__info__value div button:hover {
+  background-color: #4b6584;
+  cursor: pointer;
+}
+.main-area .main__player1 {
+  grid-area: a;
+  background-color: aliceblue;
+}
+.main-area .main__player2 {
+  grid-area: b;
+  background-color: aliceblue;
+}
+.main-area .main__spinner {
+  grid-area: s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.main-area .main__spinner .img {
+  width: 5em;
+  height: 5em;
+  transform: rotate(90deg);
+  position: absolute;
+  top: calc(50% - 2.5em);
+  right: calc(0% + 5em);
+}
+.main-area .main__spinner .box {
+  width: 32em;
+  height: 32em;
+  border: 1em solid #38ada9;
+  border-radius: 50%;
+  position: relative;
+}
+.main-area .main__spinner .box .selection {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  display: inline-block;
+}
+.main-area .main__spinner .box .selection p {
+  font-size: 1.1em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: whitesmoke;
+}
+.main-area .main__spinner .box .span-1 {
+  -webkit-clip-path: polygon(0% 92%, 100% 50%, 0% 8%);
+          clip-path: polygon(0% 92%, 100% 50%, 0% 8%);
+  background-color: #e74c3c;
+  top: calc(50% - 7.5em);
+  left: 0;
+}
+.main-area .main__spinner .box .span-2 {
+  -webkit-clip-path: polygon(100% 92%, 0% 50%, 100% 8%);
+          clip-path: polygon(100% 92%, 0% 50%, 100% 8%);
+  background-color: #2ecc71;
+  right: 0;
+  top: calc(50% - 7.5em);
+}
+.main-area .main__spinner .box .span-3 {
+  -webkit-clip-path: polygon(8% 0%, 50% 100%, 92% 0%);
+          clip-path: polygon(8% 0%, 50% 100%, 92% 0%);
+  background-color: #2980b9;
+  top: 0;
+  right: calc(50% - 7.5em);
+}
+.main-area .main__spinner .box .span-4 {
+  -webkit-clip-path: polygon(8% 100%, 50% 0%, 92% 100%);
+          clip-path: polygon(8% 100%, 50% 0%, 92% 100%);
+  background-color: #9b59b6;
+  bottom: 0;
+  right: calc(50% - 7.5em);
+}
+.main-area .main__spinner .box .box1 .span-3 p {
+  transform: translate(-50%, -50%) rotate(-270deg);
+}
+.main-area .main__spinner .box .box1 .span-1 p,
+.main-area .main__spinner .box .box2 .span-1 p {
+  transform: translate(-50%, -50%) rotate(185deg);
+}
+.main-area .main__spinner .box .box2 .span-3 p {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+.main-area .main__spinner .box .box1 .span-4 p,
+.main-area .main__spinner .box .box2 .span-4 p {
+  transform: translate(-50%, -50%) rotate(-85deg);
+}
+.main-area .main__spinner .box .box2 {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-135deg);
+}
+.main-area .main__spinner .box .spin-btn {
+  font-size: 1.2em;
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+  border: none;
+  position: absolute;
+  z-index: 12;
+  background-color: #0a3d62;
+  color: white;
+  left: calc(50% - 2.5em);
+  top: calc(50% - 2.5em);
+}
+.main-area .main__spinner .box .spin-btn:active {
+  width: 4.6em;
+  height: 4.6em;
+  left: calc(50% - 2.3em);
+  top: calc(50% - 2.3em);
+}
+.main-area .main__spinner .box .spin-btn:hover {
+  cursor: pointer;
+}
+.main-area .main__spinner .modal {
+  display: none;
+  position: absolute;
+  z-index: 20;
+  top: calc(50% - 10em);
+  width: 20em;
+  height: 20em;
+  background-color: #c7ecee;
+  border-radius: 50%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+}
+.main-area .main__spinner .modal img {
+  width: 10em;
+  height: 10em;
+  display: block;
+}
+.main-area .main__spinner .modal p {
+  width: 90%;
+  text-align: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}/*# sourceMappingURL=style.css.map */

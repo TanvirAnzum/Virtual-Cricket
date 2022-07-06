@@ -24,6 +24,7 @@ toss_btn.disabled = true;
 toss_btn.title = "Please Select Overs and Wickets First!";
 toss_btn.style.cursor = "no-drop";
 
+let cb;
 let toss_caller;
 let toss_winner;
 
@@ -50,6 +51,8 @@ function toss(elm) {
     if (toss_caller == "p1") toss_winner = "p2";
     else toss_winner = "p1";
   }
+  cb = document.querySelector(`.${toss_winner}`);
+  cb.style.display = "flex";
   setTimeout(() => {
     t_area.style.display = "none";
     toss_btn.disabled = true;
@@ -98,6 +101,7 @@ let current_wicket = 0;
 let current_run = 0;
 let current_ball = 0;
 let current_over = 0;
+let target = 0;
 ///object for mapping
 
 let obj = {
@@ -147,6 +151,13 @@ wheel.addEventListener("transitionend", () => {
 
   update(current_wicket, current_ball, current_run, toss_winner);
 
+  if (isFinished) {
+    if (current_run >= target) {
+      alert("Game Finished! winner " + toss_winner);
+      return;
+    }
+  }
+
   if (val == 4) mimg.src = "./Four.png";
   else if (val == 6) mimg.src = "./Six.png";
   else if (val == -1) mimg.src = "./Out.png";
@@ -160,13 +171,19 @@ wheel.addEventListener("transitionend", () => {
   if (current_over == max_over || current_wicket == max_wicket) {
     if (isFinished) {
       setTimeout(() => {
-        alert("Game Finished!");
-        console.log("Game Finished");
+        cb.style.display = "none";
+        if (toss_winner == "p1") toss_winner = "p2";
+        else toss_winner = "p1";
+        alert("Game Finished! winner " + toss_winner);
       }, 1500);
+      return;
     }
-    console.log(isFinished);
+    cb.style.display = "none";
+    if (!isFinished) target = current_run;
     if (toss_winner == "p1") toss_winner = "p2";
     else toss_winner = "p1";
+    cb = document.querySelector(`.${toss_winner}`);
+    cb.style.display = "flex";
     current_ball = 0;
     current_wicket = 0;
     current_run = 0;

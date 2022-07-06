@@ -12,11 +12,12 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  background: linear-gradient(#74b9ff, #a29bfe);
 
   .main {
     width: 70em;
     height: 50em;
-
+    background-color: #81ecec;
     border-radius: 1em;
     display: grid;
     grid-template-columns: 0.5fr 2fr 0.5fr;
@@ -30,7 +31,6 @@
       justify-content: center;
       gap: 5em;
       grid-area: i;
-      background-color: antiquewhite;
 
       .tossing-area {
         position: absolute;
@@ -137,11 +137,11 @@
     }
     &__player1 {
       grid-area: a;
-      background-color: aliceblue;
+      position: relative;
     }
     &__player2 {
       grid-area: b;
-      background-color: aliceblue;
+      position: relative;
     }
     &__spinner {
       grid-area: s;
@@ -163,7 +163,7 @@
         width: 32em;
         height: 32em;
         // transition: transform ease 5s;
-        border: 1em solid #38ada9;
+        border: 1em solid #ffeaa7;
         border-radius: 50%;
         position: relative;
 
@@ -280,6 +280,22 @@
       }
     }
   }
+}
+
+.p1,
+.p2 {
+  width: 100%;
+  position: absolute;
+  height: 3em;
+  background-color: #20bf6b;
+  bottom: calc(0% + 5em);
+  text-align: center;
+  color: whitesmoke;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.5em;
 }
 
 input::-webkit-outer-spin-button,

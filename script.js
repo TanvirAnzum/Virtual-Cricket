@@ -104,6 +104,11 @@ let current_over = 0;
 let target = 0;
 ///object for mapping
 
+let score = {
+  p1: 0,
+  p2: 1,
+};
+
 let obj = {
   0: -1,
   1: 4,
@@ -144,16 +149,21 @@ wheel.addEventListener("transitionend", () => {
   }
 
   current_ball++;
-  if (current_ball == 6) {
+  if (current_ball % 6 == 0) {
     current_over++;
-    current_ball = 0;
   }
 
   update(current_wicket, current_ball, current_run, toss_winner);
 
   if (isFinished) {
-    if (current_run >= target) {
-      alert("Game Finished! winner " + toss_winner);
+    if (current_run > target) {
+      Swal.fire({
+        icon: "success",
+        title: "Match Finished!",
+        text: `${toss_winner} have won the match!`,
+        showConfirmButton: false,
+        footer: '<a href="./index.html">Play Again!!</a>',
+      });
       return;
     }
   }
@@ -174,7 +184,14 @@ wheel.addEventListener("transitionend", () => {
         cb.style.display = "none";
         if (toss_winner == "p1") toss_winner = "p2";
         else toss_winner = "p1";
-        alert("Game Finished! winner " + toss_winner);
+
+        Swal.fire({
+          icon: "success",
+          title: "Match Finished!",
+          text: `${toss_winner} have won the match!`,
+          showConfirmButton: false,
+          footer: '<a href="./index.html">Play Again!!</a>',
+        });
       }, 1500);
       return;
     }
@@ -211,13 +228,8 @@ function verdict(arr) {
 ///now scoreboard calculation
 
 function update(wicket, ball, run, player) {
-  let elem;
-  if (player == "p1") {
-    elem = document.querySelector(".main__player1");
-  } else elem = document.querySelector(".main__player2");
-  let child = elem.children;
-  child[1].innerText = `Runs: ${run}`;
-  child[2].innerText = `Balls: ${ball}`;
-  child[3].innerText = `Remaining Wkts: ${max_wicket - wicket}`;
-  // child[4].innerText = ``
+  const scores = document.querySelectorAll(".score");
+  const overs = document.querySelectorAll(".overs");
+  scores[score[player]].textContent = `${run} - ${wicket}`;
+  overs[score[player]].textContent = parseInt(ball / 6) + (ball % 6) / 10;
 }

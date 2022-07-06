@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fictional Cricket Game!!</title>
     <link rel="stylesheet" href="style.css" />
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./script.js" defer></script>
   </head>
   <body>
@@ -53,10 +53,10 @@
         </div>
         <div class="main__player1">
           <h4>Player 1</h4>
-          <h4>Total Runs:</h4>
-          <h4>Total Overs:</h4>
-          <h4>Remaining Wickets:</h4>
-          <h4>Current Runrate:</h4>
+          <h4>Score</h4>
+          <span class="score"></span>
+          <h4>Overs</h4>
+          <span class="overs"></span>
           <div class="p1"><p>Currently Batting</p></div>
         </div>
         <div class="main__spinner">
@@ -83,10 +83,10 @@
         </div>
         <div class="main__player2">
           <h4>Player 2</h4>
-          <h4>Total Runs:</h4>
-          <h4>Remaining Balls:</h4>
-          <h4>Remaining Wickets:</h4>
-          <h4>Current Runrate:</h4>
+          <h4>Score</h4>
+          <span class="score"></span>
+          <h4>Overs</h4>
+          <span class="overs"></span>
           <div class="p2"><p>Currently Batting</p></div>
         </div>
       </div>

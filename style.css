@@ -30,6 +30,7 @@
   justify-content: center;
   gap: 5em;
   grid-area: i;
+  text-transform: uppercase;
 }
 .main-area .main__info .tossing-area {
   position: absolute;
@@ -94,6 +95,7 @@
 }
 .main-area .main__info__input #submit {
   background-color: #26de81;
+  color: whitesmoke;
   transition: background-color linear 0.5s;
 }
 .main-area .main__info__input #submit:hover {
@@ -132,10 +134,42 @@
 .main-area .main__player1 {
   grid-area: a;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.main-area .main__player1 span {
+  display: block;
+  height: 2em;
+  margin-bottom: 1em;
+  line-height: 2em;
+  font-size: 1.5em;
+  font-weight: 700;
+}
+.main-area .main__player1 h4 {
+  margin-bottom: 1em;
+  text-transform: uppercase;
 }
 .main-area .main__player2 {
   grid-area: b;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.main-area .main__player2 span {
+  display: block;
+  height: 2em;
+  margin-bottom: 1em;
+  line-height: 2em;
+  font-size: 1.5em;
+  font-weight: 700;
+}
+.main-area .main__player2 h4 {
+  margin-bottom: 1em;
+  text-transform: uppercase;
 }
 .main-area .main__spinner {
   grid-area: s;

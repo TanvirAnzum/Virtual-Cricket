@@ -31,6 +31,7 @@
       justify-content: center;
       gap: 5em;
       grid-area: i;
+      text-transform: uppercase;
 
       .tossing-area {
         position: absolute;
@@ -97,6 +98,7 @@
         }
         #submit {
           background-color: #26de81;
+          color: whitesmoke;
           transition: background-color linear 0.5s;
           &:hover {
             background-color: #20bf6b;
@@ -138,10 +140,42 @@
     &__player1 {
       grid-area: a;
       position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      span {
+        display: block;
+        height: 2em;
+        margin-bottom: 1em;
+        line-height: 2em;
+        font-size: 1.5em;
+        font-weight: 700;
+      }
+      h4 {
+        margin-bottom: 1em;
+        text-transform: uppercase;
+      }
     }
     &__player2 {
       grid-area: b;
       position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      span {
+        display: block;
+        height: 2em;
+        margin-bottom: 1em;
+        line-height: 2em;
+        font-size: 1.5em;
+        font-weight: 700;
+      }
+      h4 {
+        margin-bottom: 1em;
+        text-transform: uppercase;
+      }
     }
     &__spinner {
       grid-area: s;
